@@ -10,11 +10,11 @@ import android.view.View
 import com.bhongj.rc_week4.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySplashBinding
+    private lateinit var binding: com.bhongj.rc_week4.databinding.ActivitySplashBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySplashBinding.inflate(layoutInflater)
+        binding = com.bhongj.rc_week4.databinding.ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 

@@ -5,7 +5,8 @@
       <map>
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Week4/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.204" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Week4/app/src/main/res/drawable/lottery_ball.xml" value="0.204" />
-        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Week4/app/src/main/res/layout/activity_dart_main.xml" value="0.22" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Week4/app/src/main/res/drawable/lottery_ball_bonus.xml" value="0.204" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Week4/app/src/main/res/layout/activity_dart_main.xml" value="0.33" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Week4/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Week4/app/src/main/res/layout/activity_splash.xml" value="0.25" />
       </map>

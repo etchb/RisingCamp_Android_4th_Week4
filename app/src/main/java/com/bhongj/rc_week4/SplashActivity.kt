@@ -36,18 +36,18 @@ class SplashActivity : AppCompatActivity() {
 //            repeatMode = ObjectAnimator.REVERSE
 //            start()
 //        }
-//        ObjectAnimator.ofFloat(binding.splImgArrow, View.TRANSLATION_X, -10f).apply {
-//            duration = 500L
-//            repeatCount = ObjectAnimator.INFINITE
-//            repeatMode = ObjectAnimator.REVERSE
-//            start()
-//        }
-//        ObjectAnimator.ofFloat(binding.splImgArrow, View.TRANSLATION_Y, -10f).apply {
-//            duration = 500L
-//            repeatCount = ObjectAnimator.INFINITE
-//            repeatMode = ObjectAnimator.REVERSE
-//            start()
-//        }
+        ObjectAnimator.ofFloat(binding.splImgArrow, View.TRANSLATION_X, 30f).apply {
+            duration = 500L
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+            start()
+        }
+        ObjectAnimator.ofFloat(binding.splImgArrow, View.TRANSLATION_Y, 30f).apply {
+            duration = 500L
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+            start()
+        }
 
         binding.conlayWhl.setOnClickListener {
             handler.removeCallbacks(runnable)

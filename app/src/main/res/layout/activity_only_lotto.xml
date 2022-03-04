@@ -7,36 +7,26 @@
     android:background="@drawable/page_background"
     tools:context=".ResultActivity">
 
-    <ImageView
+    <TextView
         android:id="@+id/img_my_score"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="50dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/img_ball1"
-        app:layout_constraintHeight_percent="0.3"
-        app:layout_constraintWidth_percent="0.8"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintVertical_bias="0.2"
-        android:src="@drawable/scoreboard2" />
-    <TextView
-        android:id="@+id/txt_my_score"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
         android:text="오늘의 로또 번호!"
-        android:textSize="30sp"
+        android:textSize="28sp"
         android:textColor="@color/black"
         android:gravity="center"
         android:fontFamily="@font/one_mobile_pop"
         android:paddingBottom="20dp"
-        app:layout_constraintTop_toTopOf="@+id/img_my_score"
-        app:layout_constraintLeft_toLeftOf="@+id/img_my_score"
-        app:layout_constraintRight_toRightOf="@+id/img_my_score"
-        app:layout_constraintBottom_toBottomOf="@+id/img_my_score" />
-
+        android:layout_marginBottom="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/img_ball1"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0.3"
+        android:background="@drawable/scoreboard2" />
     <TextView
         android:id="@+id/img_ball1"
         android:layout_width="45dp"

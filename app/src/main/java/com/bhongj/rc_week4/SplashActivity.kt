@@ -17,12 +17,47 @@ class SplashActivity : AppCompatActivity() {
         binding = com.bhongj.rc_week4.databinding.ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        binding.conlayWhl.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+        val handler = Handler(Looper.getMainLooper())
+        val runnable = Runnable {
+            val intent = Intent(this, SelectModeActivity::class.java)
             startActivity(intent)
             finish()
         }
+
+//        ObjectAnimator.ofFloat(binding.imgChar, View.SCALE_X, 1.1f).apply {
+//            duration = 700L
+//            repeatCount = ObjectAnimator.INFINITE
+//            repeatMode = ObjectAnimator.REVERSE
+//            start()
+//        }
+//        ObjectAnimator.ofFloat(binding.imgChar, View.SCALE_Y, 1.1f).apply {
+//            duration = 700L
+//            repeatCount = ObjectAnimator.INFINITE
+//            repeatMode = ObjectAnimator.REVERSE
+//            start()
+//        }
+//        ObjectAnimator.ofFloat(binding.splImgArrow, View.TRANSLATION_X, -10f).apply {
+//            duration = 500L
+//            repeatCount = ObjectAnimator.INFINITE
+//            repeatMode = ObjectAnimator.REVERSE
+//            start()
+//        }
+//        ObjectAnimator.ofFloat(binding.splImgArrow, View.TRANSLATION_Y, -10f).apply {
+//            duration = 500L
+//            repeatCount = ObjectAnimator.INFINITE
+//            repeatMode = ObjectAnimator.REVERSE
+//            start()
+//        }
+
+        binding.conlayWhl.setOnClickListener {
+            handler.removeCallbacks(runnable)
+            val intent = Intent(this, SelectModeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        handler.postDelayed(runnable, 5000)
+
 
 //        val runnable = Runnable {
 //            val intent = Intent(this, MainActivity::class.java)
@@ -38,54 +73,21 @@ class SplashActivity : AppCompatActivity() {
 //            finish()
 //        }
 
-        val handler = Handler(Looper.getMainLooper())
-
         Thread() {
-            val params = binding.imgChar.layoutParams
             var cnt = 0
             val div = 2
-            while(true) {
+             while(true) {
                 if (cnt % div == 0) {
-                    handler.post {
-                        ObjectAnimator.ofFloat(binding.imgChar, View.SCALE_X, 1f).apply {
-                            duration = 500L
-                            start()
-                        }
-                        ObjectAnimator.ofFloat(binding.imgChar, View.SCALE_Y, 1f).apply {
-                            duration = 500L
-                            start()
-                        }
-                        ObjectAnimator.ofFloat(binding.splImgArrow, View.TRANSLATION_X, 10f).apply {
-                            duration = 500L
-                            start()
-                        }
-                        ObjectAnimator.ofFloat(binding.splImgArrow, View.TRANSLATION_Y, 10f).apply {
-                            duration = 500L
-                            start()
-                        }
+                    handler.post{
+                        binding.imgChar.setImageResource(R.drawable.char_normal)
                     }
                 }
-                else if (cnt % div == 1) {
+                else {
                     handler.post {
-                        ObjectAnimator.ofFloat(binding.imgChar, View.SCALE_X, 1.1f).apply {
-                            duration = 500L
-                            start()
-                        }
-                        ObjectAnimator.ofFloat(binding.imgChar, View.SCALE_Y, 1.1f).apply {
-                            duration = 500L
-                            start()
-                        }
-                        ObjectAnimator.ofFloat(binding.splImgArrow, View.TRANSLATION_X, -10f).apply {
-                            duration = 500L
-                            start()
-                        }
-                        ObjectAnimator.ofFloat(binding.splImgArrow, View.TRANSLATION_Y, -10f).apply {
-                            duration = 500L
-                            start()
-                        }
+                        binding.imgChar.setImageResource(R.drawable.char_normal2)
                     }
                 }
-                Thread.sleep(500)
+                Thread.sleep(700)
                 cnt++
                 if (cnt > div-1) {
                     cnt = 0

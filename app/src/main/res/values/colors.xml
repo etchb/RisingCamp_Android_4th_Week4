@@ -10,4 +10,5 @@
     <color name="ballStroke">#FEF16B</color>
     <color name="ballSolid1">#C1FEA6</color>
     <color name="ballSolid2">#97D2FE</color>
+    <color name="ballSolid_fail">#B3B3B3</color>
 </resources>

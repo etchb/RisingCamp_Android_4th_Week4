@@ -25,9 +25,9 @@ class SelectModeActivity : AppCompatActivity() {
             intent.putExtra("mode", "301")
             startActivity(intent)
         }
-        binding.btnDart501.setOnClickListener {
+        binding.btnDartRand.setOnClickListener {
             val intent = Intent(this, DartMainActivity::class.java)
-            intent.putExtra("mode", "501")
+            intent.putExtra("mode", "rand")
             startActivity(intent)
         }
         binding.btnDartDual.setOnClickListener {

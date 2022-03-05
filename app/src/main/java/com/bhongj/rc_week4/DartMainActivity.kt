@@ -26,7 +26,7 @@ class DartMainActivity : AppCompatActivity() {
     lateinit var binding: ActivityDartMainBinding
     private lateinit var gridLayoutID: MutableList<TextView>
     private lateinit var textViewID: MutableList<TextView>
-    private lateinit var randColorNum : MutableList<Int>
+    private lateinit var randColorNum: MutableList<Int>
     private var key = 1
     private var myScore = 0
     private var targetScore = 0
@@ -45,14 +45,67 @@ class DartMainActivity : AppCompatActivity() {
         if (intent.getStringExtra("mode") == "301") {
             targetScore = 301
             binding.txtRemainScore.text = "남은 점수 : 301"
-        }
-        else {
-            targetScore = 501
-            binding.txtRemainScore.text = "남은 점수 : 501"
+        } else {
+            targetScore= (Math.random() * 21).toInt()*10 + 201 // 201 ~ 401 까지 랜덤
+            binding.txtRemainScore.text = "남은 점수 : ${targetScore}"
         }
 
-        gridLayoutID = mutableListOf<TextView>(binding.mainPostit1,binding.mainPostit2,binding.mainPostit3,binding.mainPostit4,binding.mainPostit5,binding.mainPostit6,binding.mainPostit7,binding.mainPostit8,binding.mainPostit9,binding.mainPostit10,binding.mainPostit11,binding.mainPostit12,binding.mainPostit13,binding.mainPostit14,binding.mainPostit15,binding.mainPostit16,binding.mainPostit17,binding.mainPostit18,binding.mainPostit19,binding.mainPostit20,binding.mainPostit21,binding.mainPostit22,binding.mainPostit23,binding.mainPostit24,binding.mainPostit25,binding.mainPostit26,binding.mainPostit27,binding.mainPostit28,binding.mainPostit29,binding.mainPostit30,binding.mainPostit31,binding.mainPostit32,binding.mainPostit33,binding.mainPostit34,binding.mainPostit35,binding.mainPostit36,binding.mainPostit37,binding.mainPostit38,binding.mainPostit39,binding.mainPostit40,binding.mainPostit41,binding.mainPostit42,binding.mainPostit43,binding.mainPostit44,binding.mainPostit45)
-        textViewID = mutableListOf<TextView>(binding.imgBall1,binding.imgBall2,binding.imgBall3,binding.imgBall4,binding.imgBall5,binding.imgBall6,binding.imgBall7)
+        gridLayoutID = mutableListOf<TextView>(
+            binding.mainPostit1,
+            binding.mainPostit2,
+            binding.mainPostit3,
+            binding.mainPostit4,
+            binding.mainPostit5,
+            binding.mainPostit6,
+            binding.mainPostit7,
+            binding.mainPostit8,
+            binding.mainPostit9,
+            binding.mainPostit10,
+            binding.mainPostit11,
+            binding.mainPostit12,
+            binding.mainPostit13,
+            binding.mainPostit14,
+            binding.mainPostit15,
+            binding.mainPostit16,
+            binding.mainPostit17,
+            binding.mainPostit18,
+            binding.mainPostit19,
+            binding.mainPostit20,
+            binding.mainPostit21,
+            binding.mainPostit22,
+            binding.mainPostit23,
+            binding.mainPostit24,
+            binding.mainPostit25,
+            binding.mainPostit26,
+            binding.mainPostit27,
+            binding.mainPostit28,
+            binding.mainPostit29,
+            binding.mainPostit30,
+            binding.mainPostit31,
+            binding.mainPostit32,
+            binding.mainPostit33,
+            binding.mainPostit34,
+            binding.mainPostit35,
+            binding.mainPostit36,
+            binding.mainPostit37,
+            binding.mainPostit38,
+            binding.mainPostit39,
+            binding.mainPostit40,
+            binding.mainPostit41,
+            binding.mainPostit42,
+            binding.mainPostit43,
+            binding.mainPostit44,
+            binding.mainPostit45
+        )
+        textViewID = mutableListOf<TextView>(
+            binding.imgBall1,
+            binding.imgBall2,
+            binding.imgBall3,
+            binding.imgBall4,
+            binding.imgBall5,
+            binding.imgBall6,
+            binding.imgBall7
+        )
 
 
         binding.targetScore.text = targetScore.toString()
@@ -64,14 +117,15 @@ class DartMainActivity : AppCompatActivity() {
         val width = resources.displayMetrics.widthPixels
         val height = resources.displayMetrics.heightPixels
         val disDen = resources.displayMetrics.density
-        val moveX_s = 0f*width
-        val moveX_f = 0.7f*width
+        val moveX_s = 0f * width
+        val moveX_f = 0.7f * width
 
-        val anim_arrow = ObjectAnimator.ofFloat(binding.imgArrow, View.TRANSLATION_X, moveX_f).apply {
-            repeatCount = ValueAnimator.INFINITE
-            repeatMode = ValueAnimator.REVERSE
-            duration = 1500L
-        }
+        val anim_arrow =
+            ObjectAnimator.ofFloat(binding.imgArrow, View.TRANSLATION_X, moveX_f).apply {
+                repeatCount = ValueAnimator.INFINITE
+                repeatMode = ValueAnimator.REVERSE
+                duration = 1500L
+            }
         val anim_bow = ObjectAnimator.ofFloat(binding.imgBow, View.TRANSLATION_X, moveX_f).apply {
             repeatCount = ValueAnimator.INFINITE
             repeatMode = ValueAnimator.REVERSE
@@ -87,20 +141,17 @@ class DartMainActivity : AppCompatActivity() {
             }
         }
 
-        for (idx in 0 .. 44) {
+        for (idx in 0..44) {
             gridLayoutID[idx].text = randNum[idx].toString()
             if (randColorNum.contains(idx)) {
-                if (randColorNum.indexOf(idx)%3 == 0) {
+                if (randColorNum.indexOf(idx) % 3 == 0) {
                     gridLayoutID[idx].setBackgroundResource(R.drawable.postit_green)
-                }
-                else if (randColorNum.indexOf(idx)%3 == 1) {
+                } else if (randColorNum.indexOf(idx) % 3 == 1) {
                     gridLayoutID[idx].setBackgroundResource(R.drawable.postit_yellow)
-                }
-                else if (randColorNum.indexOf(idx)%3 == 2) {
+                } else if (randColorNum.indexOf(idx) % 3 == 2) {
                     gridLayoutID[idx].setBackgroundResource(R.drawable.postit_red)
                 }
-            }
-            else {
+            } else {
                 gridLayoutID[idx].setBackgroundResource(R.drawable.postit_blue)
             }
         }
@@ -110,7 +161,7 @@ class DartMainActivity : AppCompatActivity() {
                 val handler = Handler(Looper.getMainLooper())
 
                 Thread.sleep(100)
-                handler.post{
+                handler.post {
                     binding.startCount.text = "3"
                 }
                 Thread.sleep(1000)
@@ -185,7 +236,7 @@ class DartMainActivity : AppCompatActivity() {
 
         Thread() {
             val handler = Handler(Looper.getMainLooper())
-            while(true) {
+            while (true) {
                 if (gameCnt > 6) {
                     break
                 }
@@ -200,7 +251,7 @@ class DartMainActivity : AppCompatActivity() {
                         val anim_arrow_shot = ObjectAnimator.ofFloat(
                             binding.imgArrow,
                             View.TRANSLATION_Y,
-                            (pointY_s - pointY_f)*2*(4000 - min(time_f-time_s,2000))/2000
+                            (pointY_s - pointY_f) * 2 * (4000 - min(time_f - time_s, 2000)) / 2000
                         ).apply {
                             LinearInterpolator()
                             duration = 1000L
@@ -213,29 +264,37 @@ class DartMainActivity : AppCompatActivity() {
                         binding.rootlay.addView(
                             myView(
                                 binding.imgArrow.x + binding.imgArrow.width / 2,
-                                binding.imgArrow.y+(pixelOff*disDen),
+                                binding.imgArrow.y + (pixelOff * disDen),
                                 binding.root.context
                             )
                         )
-                        binding.imgShotEffect.x = binding.imgArrow.x + binding.imgArrow.width / 2 - binding.imgShotEffect.width/2
-                        binding.imgShotEffect.y = binding.imgArrow.y + (pixelOff*disDen) - binding.imgShotEffect.height/2
+                        binding.imgShotEffect.x =
+                            binding.imgArrow.x + binding.imgArrow.width / 2 - binding.imgShotEffect.width / 2
+                        binding.imgShotEffect.y =
+                            binding.imgArrow.y + (pixelOff * disDen) - binding.imgShotEffect.height / 2
                         binding.imgShotEffect.visibility = View.VISIBLE
-                        val shotPos = getGridPosition(binding.imgArrow.x + binding.imgArrow.width / 2, binding.imgArrow.y + pixelOff*disDen)
+                        val shotPos = getGridPosition(
+                            binding.imgArrow.x + binding.imgArrow.width / 2,
+                            binding.imgArrow.y + pixelOff * disDen
+                        )
                         binding.imgArrow.y = pointY_s
+                        binding.imgBow.x = 0f
+                        binding.imgArrow.x = 0f
 
-                        val idx = shotPos[0]*5 + shotPos[1]
-                        if (((0..8).toList().contains(shotPos[0])) && ((0..4).toList().contains(shotPos[1]))) {
+                        val idx = shotPos[0] * 5 + shotPos[1]
+                        if (((0..8).toList().contains(shotPos[0])) && ((0..4).toList()
+                                .contains(shotPos[1]))
+                        ) {
                             myScore += getPoint(idx)
                             textViewID[gameCnt].text = gridLayoutID[idx].text.toString()
                             selNum.add(gridLayoutID[idx].text.toString().toInt())
-                        }
-                        else {
+                        } else {
                             textViewID[gameCnt].text = "꽝"
                             textViewID[gameCnt].setBackgroundResource(R.drawable.lottery_ball_fail)
                             selNum.add(0)
                         }
                         binding.myScore.text = myScore.toString()
-                        binding.txtRemainScore.text = (targetScore - myScore).toString()
+                        binding.txtRemainScore.text = "남은 점수 : ${targetScore - myScore}"
 //
 //                        binding.imgArrow.x = 0f
 //                        binding.imgBow.x = 0f
@@ -246,15 +305,14 @@ class DartMainActivity : AppCompatActivity() {
                         gameCnt++
                         key++
                     }
-//                    Thread.sleep(0)
+                    Thread.sleep(500)
                     while (key < 1) {
                         Thread.sleep(100)
                     }
                     key--
                     runLoop = true
                     key++
-                }
-                else {
+                } else {
                     Thread.sleep(100)
                 }
             }
@@ -263,18 +321,18 @@ class DartMainActivity : AppCompatActivity() {
         Thread() {
             val handler = Handler(Looper.getMainLooper())
 
-            while(true) {
+            while (true) {
                 if (gameCnt > 6) {
                     break
                 }
                 if (runLoop) {
                     runLoop = false
+                    Thread.sleep(100)
                     handler.post {
                         anim_arrow.start()
                         anim_bow.start()
                     }
                 }
-                Thread.sleep(100)
             }
             Thread.sleep(1000)
             val intent = Intent(this, ResultActivity::class.java)
@@ -288,7 +346,7 @@ class DartMainActivity : AppCompatActivity() {
         Thread() {
             var time = 0
             val handler = Handler(Looper.getMainLooper())
-            while(binding.startCount.visibility != View.GONE) {
+            while (binding.startCount.visibility != View.GONE) {
                 Thread.sleep(1000)
             }
 //            while(true) {
@@ -306,23 +364,20 @@ class DartMainActivity : AppCompatActivity() {
         }.start()
     }
 
-    private fun getPoint(idx: Int) : Int {
+    private fun getPoint(idx: Int): Int {
         var getScore = 0
         if (randColorNum.contains(idx)) {
-            if (randColorNum.indexOf(idx)%3 == 0) {
+            if (randColorNum.indexOf(idx) % 3 == 0) {
                 getScore = gridLayoutID[idx].text.toString().toInt() * 2
                 gridLayoutID[idx].setBackgroundResource(R.drawable.postit1)
-            }
-            else if (randColorNum.indexOf(idx)%3 == 1) {
+            } else if (randColorNum.indexOf(idx) % 3 == 1) {
                 getScore = gridLayoutID[idx].text.toString().toInt() * 3
                 gridLayoutID[idx].setBackgroundResource(R.drawable.postit1)
-            }
-            else if (randColorNum.indexOf(idx)%3 == 2) {
+            } else if (randColorNum.indexOf(idx) % 3 == 2) {
                 getScore = gridLayoutID[idx].text.toString().toInt() * 4
                 gridLayoutID[idx].setBackgroundResource(R.drawable.postit1)
             }
-        }
-        else {
+        } else {
             getScore = gridLayoutID[idx].text.toString().toInt()
             gridLayoutID[idx].setBackgroundResource(R.drawable.postit1)
         }
@@ -334,14 +389,14 @@ class DartMainActivity : AppCompatActivity() {
         val height = resources.displayMetrics.heightPixels
         val disDen = resources.displayMetrics.density
 
-        val item_h = height*0.5/9
-        val item_w = (width-(20*disDen))/5
+        val item_h = height * 0.5 / 9
+        val item_w = (width - (20 * disDen)) / 5
 
-        var row = ((y-(height*0.15 + 40*disDen))/item_h).toFloat()
+        var row = ((y - (height * 0.15 + 40 * disDen)) / item_h).toFloat()
         if (row < 0) {
             row = -1f
         }
-        var col = ((x-10*disDen)/item_w).toInt()
+        var col = ((x - 10 * disDen) / item_w).toInt()
 
         return arrayOf(row.toInt(), col)
     }
@@ -362,7 +417,7 @@ class DartMainActivity : AppCompatActivity() {
         timeCheck = 0
     }
 
-    class myView(x: Float, y:Float, context: Context) : View(context) {
+    class myView(x: Float, y: Float, context: Context) : View(context) {
         val posX: Float = x
         val posy: Float = y
 
@@ -372,7 +427,7 @@ class DartMainActivity : AppCompatActivity() {
             val paint = Paint()
             paint.color = Color.RED
 
-            canvas?.drawCircle(posX,posy,10f, paint)
+            canvas?.drawCircle(posX, posy, 10f, paint)
         }
     }
 }

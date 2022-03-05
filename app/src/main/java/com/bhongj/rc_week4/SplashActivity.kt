@@ -18,11 +18,11 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val handler = Handler(Looper.getMainLooper())
-//        val runnable = Runnable {
-//            val intent = Intent(this, SelectModeActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
+        val runnable = Runnable {
+            val intent = Intent(this, SelectModeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
 //        ObjectAnimator.ofFloat(binding.imgChar, View.SCALE_X, 1.1f).apply {
 //            duration = 700L
@@ -50,28 +50,13 @@ class SplashActivity : AppCompatActivity() {
         }
 
         binding.conlayWhl.setOnClickListener {
-//            handler.removeCallbacks(runnable)
+            handler.removeCallbacks(runnable)
             val intent = Intent(this, SelectModeActivity::class.java)
             startActivity(intent)
             finish()
         }
 
-//        handler.postDelayed(runnable, 5000)
-
-
-//        val runnable = Runnable {
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
-//        handler.postDelayed(runnable, 3000)
-//
-//        binding.animationView.setOnClickListener(){
-//            handler.removeCallbacks(runnable)
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
+        handler.postDelayed(runnable, 5000)
 
         Thread() {
             var cnt = 0
